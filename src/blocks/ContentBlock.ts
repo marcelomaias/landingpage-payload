@@ -1,0 +1,16 @@
+import { Block } from 'payload'
+
+export const ContentBlock: Block = {
+  slug: 'content',
+  fields: [
+    {
+      name: 'heading',
+      type: 'richText',
+    },
+    {
+      name: 'content',
+      type: 'richText',
+      required: true,
+    },
+  ],
+}
