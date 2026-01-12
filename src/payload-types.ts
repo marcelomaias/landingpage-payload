@@ -147,7 +147,7 @@ export interface Page {
           };
           [k: string]: unknown;
         };
-        subheading: {
+        subheading?: {
           root: {
             type: string;
             children: {
@@ -161,11 +161,11 @@ export interface Page {
             version: number;
           };
           [k: string]: unknown;
-        };
-        image: string | Media;
-        cta: {
-          label: string;
-          url: string;
+        } | null;
+        image?: (string | null) | Media;
+        cta?: {
+          label?: string | null;
+          url?: string | null;
         };
         id?: string | null;
         blockName?: string | null;

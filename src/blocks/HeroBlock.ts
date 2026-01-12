@@ -11,13 +11,11 @@ export const HeroBlock: Block = {
     {
       name: 'subheading',
       type: 'richText',
-      required: true,
     },
     {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-      required: true,
     },
     {
       name: 'cta',
@@ -26,12 +24,10 @@ export const HeroBlock: Block = {
         {
           name: 'label',
           type: 'text',
-          required: true,
         },
         {
           name: 'url',
           type: 'text',
-          required: true,
         },
       ],
     },
