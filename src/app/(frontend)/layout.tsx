@@ -1,4 +1,6 @@
 import React from 'react'
+import { baseFont } from './utils/fonts'
+
 import './styles.css'
 
 export const metadata = {
@@ -10,7 +12,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
+    <html lang="en" className={baseFont.className}>
       <body>{children}</body>
     </html>
   )

@@ -10,6 +10,7 @@ import './styles.css'
 import HeroBlock from './components/HeroBlock'
 import ContentBlock from './components/ContentBlock'
 import NewsletterBlock from './components/NewsletterBlock'
+import TopicsBlock from './components/TopicsBlock'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -38,6 +39,8 @@ export default async function HomePage() {
     switch (block.blockType) {
       case 'hero':
         return <HeroBlock block={block} key={block.id} />
+      case 'topics':
+        return <TopicsBlock block={block} key={block.id} />
       case 'content':
         return <ContentBlock block={block} key={block.id} />
       case 'newsletter-form':

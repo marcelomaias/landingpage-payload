@@ -163,7 +163,17 @@ export interface Page {
           [k: string]: unknown;
         } | null;
         image?: (string | null) | Media;
+        advantages?:
+          | {
+              title: string;
+              id?: string | null;
+            }[]
+          | null;
         cta?: {
+          label?: string | null;
+          url?: string | null;
+        };
+        cta2?: {
           label?: string | null;
           url?: string | null;
         };
@@ -226,6 +236,18 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'newsletter-form';
+      }
+    | {
+        topics?:
+          | {
+              image?: (string | null) | Media;
+              title: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'topics';
       }
   )[];
   updatedAt: string;
@@ -567,7 +589,19 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               subheading?: T;
               image?: T;
+              advantages?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
               cta?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              cta2?:
                 | T
                 | {
                     label?: T;
@@ -589,6 +623,19 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               heading?: T;
               form?: T;
+              id?: T;
+              blockName?: T;
+            };
+        topics?:
+          | T
+          | {
+              topics?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
