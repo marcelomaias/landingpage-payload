@@ -249,6 +249,59 @@ export interface Page {
         blockName?: string | null;
         blockType: 'topics';
       }
+    | {
+        screens?:
+          | {
+              text: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              image: string | Media;
+              alignment: 'text-first' | 'image-first';
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'admin-screenshots';
+      }
+    | {
+        heading?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        brands?:
+          | {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'brands';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
@@ -634,6 +687,33 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     image?: T;
                     title?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'admin-screenshots'?:
+          | T
+          | {
+              screens?:
+                | T
+                | {
+                    text?: T;
+                    image?: T;
+                    alignment?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        brands?:
+          | T
+          | {
+              heading?: T;
+              brands?:
+                | T
+                | {
+                    image?: T;
                     id?: T;
                   };
               id?: T;

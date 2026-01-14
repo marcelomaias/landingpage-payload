@@ -1,3 +1,5 @@
+import { AdminScreensBlock } from '@/blocks/AdminScreensBlock'
+import { BrandsBlock } from '@/blocks/BrandsBlock'
 import { ContentBlock } from '@/blocks/ContentBlock'
 import { HeroBlock } from '@/blocks/HeroBlock'
 import { NewsletterFormBlock } from '@/blocks/NewsletterFormBlock'
@@ -24,7 +26,14 @@ export const Pages: CollectionConfig = {
       name: 'layout',
       type: 'blocks',
       required: true,
-      blocks: [HeroBlock, ContentBlock, NewsletterFormBlock, TopicsBlock],
+      blocks: [
+        HeroBlock,
+        ContentBlock,
+        NewsletterFormBlock,
+        TopicsBlock,
+        AdminScreensBlock,
+        BrandsBlock,
+      ],
     },
   ],
 }

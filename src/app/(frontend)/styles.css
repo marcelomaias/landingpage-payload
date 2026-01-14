@@ -18,9 +18,9 @@ body,
 }
 
 body {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.75rem;
-
+  font-weight: 300;
   color: #333;
   background: #f7e16f;
   background: linear-gradient(320deg, rgba(247, 225, 111, 1) 0%, rgba(247, 152, 104, 1) 100%);
@@ -60,7 +60,6 @@ h2 {
   font-weight: normal;
   margin: 0;
   text-wrap: balance;
-  max-width: 800px;
 
   @media (min-width: 992px) {
     font-size: 24px;
@@ -118,6 +117,7 @@ svg {
   }
   h2 {
     margin: 3rem 0;
+    max-width: 800px;
   }
 
   h3 {
@@ -173,7 +173,7 @@ svg {
 
 .topicsSection {
   padding: 60px 15px;
-  background-color: rgba(257, 257, 257, 0.1);
+  background-color: rgba(257, 257, 257, 0.05);
   border-block: 2px dashed rgba(257, 257, 257, 0.4);
 
   @media (min-width: 1024px) {
@@ -197,5 +197,74 @@ svg {
   img {
     margin: 0 auto;
     max-width: 128px;
+  }
+}
+
+.adminScreensSection {
+  max-width: 1070px;
+  margin: 0 auto;
+  padding: 60px 15px;
+
+  @media (min-width: 1024px) {
+    padding: 80px 20px;
+  }
+}
+
+.adminScreenRow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 15px;
+  max-width: 1200px;
+  text-align: center;
+  @media (min-width: 1024px) {
+    gap: 90px;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  img {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+  p {
+    text-wrap: balance;
+  }
+}
+
+.image-first {
+  @media (min-width: 1024px) {
+    div {
+      order: 2;
+    }
+    img {
+      order: 1;
+    }
+  }
+}
+
+.brandsSection {
+  padding: 60px 15px;
+  background-color: rgba(257, 257, 257, 0.05);
+  border-block: 2px dashed rgba(257, 257, 257, 0.4);
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    padding: 80px 20px;
+  }
+}
+
+.brandsGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  opacity: 0.65;
+  @media (min-width: 1024px) {
+    gap: 40px;
   }
 }

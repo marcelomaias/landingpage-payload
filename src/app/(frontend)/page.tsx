@@ -11,6 +11,8 @@ import HeroBlock from './components/HeroBlock'
 import ContentBlock from './components/ContentBlock'
 import NewsletterBlock from './components/NewsletterBlock'
 import TopicsBlock from './components/TopicsBlock'
+import AdminScreensBlock from './components/AdminScreensBlock'
+import BrandsBlock from './components/BrandsBlock'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -41,6 +43,10 @@ export default async function HomePage() {
         return <HeroBlock block={block} key={block.id} />
       case 'topics':
         return <TopicsBlock block={block} key={block.id} />
+      case 'admin-screenshots':
+        return <AdminScreensBlock block={block} key={block.id} />
+      case 'brands':
+        return <BrandsBlock block={block} key={block.id} />
       case 'content':
         return <ContentBlock block={block} key={block.id} />
       case 'newsletter-form':
