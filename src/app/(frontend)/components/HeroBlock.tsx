@@ -2,8 +2,8 @@ import { Page } from '@/payload-types'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { headingFont } from '../utils/fonts'
 import { FaRegCheckCircle } from 'react-icons/fa'
+import { MainHeading } from './subComponents/MainHeading'
 
 type HeroProps = Extract<Page['layout'][0], { blockType: 'hero' }>
 
@@ -11,7 +11,8 @@ export default function HeroBlock({ block }: { block: HeroProps }) {
   return (
     <section className="heroSection">
       {/* <h1>{block.heading}</h1> */}
-      <RichText data={block.heading} />
+      {/* <RichText data={block.heading} /> */}
+      <MainHeading data={block.heading} />
       {block.subheading && <RichText data={block.subheading} />}
       {typeof block?.image === 'object' && block?.image?.url && (
         <Image src={block?.image.url} alt={block?.image.alt} width={1280} height={400} priority />
