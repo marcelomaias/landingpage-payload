@@ -1,5 +1,5 @@
 import React from 'react'
-import { baseFont } from './utils/fonts'
+import { baseFont, headingFont } from './utils/fonts'
 
 import './styles.css'
 
@@ -12,7 +12,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en" className={baseFont.className}>
+    <html lang="en" className={`${baseFont.variable} ${headingFont.variable}`}>
       <body>{children}</body>
     </html>
   )

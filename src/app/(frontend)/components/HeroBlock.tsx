@@ -11,7 +11,7 @@ export default function HeroBlock({ block }: { block: HeroProps }) {
   return (
     <section className="heroSection">
       {/* <h1>{block.heading}</h1> */}
-      <RichText data={block.heading} className={headingFont.className} />
+      <RichText data={block.heading} />
       {block.subheading && <RichText data={block.subheading} />}
       {typeof block?.image === 'object' && block?.image?.url && (
         <Image src={block?.image.url} alt={block?.image.alt} width={1280} height={400} priority />

@@ -13,6 +13,8 @@ import NewsletterBlock from './components/NewsletterBlock'
 import TopicsBlock from './components/TopicsBlock'
 import AdminScreensBlock from './components/AdminScreensBlock'
 import BrandsBlock from './components/BrandsBlock'
+import FeaturesBlock from './components/FeaturesBlock'
+import ContactBlock from './components/ContactBlock'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -35,7 +37,7 @@ export default async function HomePage() {
     return <h1>Page not found</h1>
   }
 
-  console.log('PAGE: ', page.layout[0])
+  // console.log('PAGE: ', page.layout[4])
 
   const renderBlock = (block: Page['layout'][0]) => {
     switch (block.blockType) {
@@ -47,10 +49,12 @@ export default async function HomePage() {
         return <AdminScreensBlock block={block} key={block.id} />
       case 'brands':
         return <BrandsBlock block={block} key={block.id} />
+      case 'features':
+        return <FeaturesBlock block={block} key={block.id} />
       case 'content':
         return <ContentBlock block={block} key={block.id} />
-      case 'newsletter-form':
-        return <NewsletterBlock block={block} key={block.id} />
+      case 'contact-form':
+        return <ContactBlock block={block} key={block.id} />
       default:
         return null
     }

@@ -1,6 +1,8 @@
 import { AdminScreensBlock } from '@/blocks/AdminScreensBlock'
 import { BrandsBlock } from '@/blocks/BrandsBlock'
+import { ContactFormBlock } from '@/blocks/ContactBlock'
 import { ContentBlock } from '@/blocks/ContentBlock'
+import { FeaturesBlock } from '@/blocks/FeaturesBlock'
 import { HeroBlock } from '@/blocks/HeroBlock'
 import { NewsletterFormBlock } from '@/blocks/NewsletterFormBlock'
 import { TopicsBlock } from '@/blocks/TopicsBlock'
@@ -33,6 +35,8 @@ export const Pages: CollectionConfig = {
         TopicsBlock,
         AdminScreensBlock,
         BrandsBlock,
+        FeaturesBlock,
+        ContactFormBlock,
       ],
     },
   ],
