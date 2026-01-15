@@ -1,6 +1,6 @@
 import { Page } from '@/payload-types'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import { SectionTitle } from '@payloadcms/ui'
+
 import Image from 'next/image'
 
 type BrandsProps = Extract<Page['layout'][0], { blockType: 'brands' }>

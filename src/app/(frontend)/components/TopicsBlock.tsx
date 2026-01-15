@@ -1,6 +1,5 @@
 import { Page } from '@/payload-types'
 import Image from 'next/image'
-import { SpinOnScrollAnim } from './gsap/SpinOnScrollAnim'
 
 type TopicsProps = Extract<Page['layout'][0], { blockType: 'topics' }>
 
