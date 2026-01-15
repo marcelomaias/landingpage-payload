@@ -1,21 +1,40 @@
 import { Page } from '@/payload-types'
 import Image from 'next/image'
+import { SpinOnScrollAnim } from './gsap/SpinOnScrollAnim'
 
 type TopicsProps = Extract<Page['layout'][0], { blockType: 'topics' }>
 
 export default function TopicsBlock({ block }: { block: TopicsProps }) {
+  console.log('BLOCKS.TOPICS: ', block.topics)
+
   return (
     <section id="topics" className="topicsSection">
       {block.topics && block.topics.length > 0 && (
-        <div className="topicsGrid">
+        <div className="topicsGrid" data-spin-container="topics">
           {block.topics.map((topic, idx) => (
             <div key={idx} className="topicItem">
               {typeof topic?.image === 'object' && topic?.image?.url && (
-                <Image src={topic?.image.url} alt={topic?.image.alt} width={200} height={200} />
+                <Image
+                  src={topic?.image.url}
+                  alt={topic?.image.alt}
+                  width={200}
+                  height={200}
+                  data-spin-item="topics"
+                />
               )}
+
               <h3>{topic.title}</h3>
             </div>
           ))}
+          <SpinOnScrollAnim
+            content={block.topics}
+            rotations={0.75}
+            stagger={0.2}
+            start="top 90%"
+            end="top 60%"
+            containerSelector='[data-spin-container="topics"]'
+            itemSelector='[data-spin-item="topics"]'
+          />
         </div>
       )}
     </section>

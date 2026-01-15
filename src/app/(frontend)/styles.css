@@ -141,6 +141,19 @@ svg {
       font-size: 18px;
     }
   }
+
+  h1 {
+    color: transparent;
+    user-select: none;
+  }
+
+  .char {
+    color: #333;
+    opacity: 0;
+    visibility: hidden;
+    display: inline-block; /* Essential for transform/y to work */
+    transform: translateY(30px); /* This is your 'y' starting position */
+  }
 }
 
 .advantagesGrid {
