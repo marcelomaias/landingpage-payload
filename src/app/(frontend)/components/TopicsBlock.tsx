@@ -10,7 +10,7 @@ export default function TopicsBlock({ block }: { block: TopicsProps }) {
   return (
     <section id="topics" className="topicsSection">
       {block.topics && block.topics.length > 0 && (
-        <div className="topicsGrid" data-spin-container="topics">
+        <div className="topicsGrid">
           {block.topics.map((topic, idx) => (
             <div key={idx} className="topicItem">
               {typeof topic?.image === 'object' && topic?.image?.url && (
@@ -26,15 +26,6 @@ export default function TopicsBlock({ block }: { block: TopicsProps }) {
               <h3>{topic.title}</h3>
             </div>
           ))}
-          <SpinOnScrollAnim
-            content={block.topics}
-            rotations={0.75}
-            stagger={0.2}
-            start="top 90%"
-            end="top 60%"
-            containerSelector='[data-spin-container="topics"]'
-            itemSelector='[data-spin-item="topics"]'
-          />
         </div>
       )}
     </section>

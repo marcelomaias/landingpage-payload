@@ -2,6 +2,7 @@ import React from 'react'
 import { baseFont, headingFont } from './utils/fonts'
 
 import './styles.css'
+import { PageAnimations } from './components/gsap/PageAnimations'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
@@ -13,7 +14,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en" className={`${baseFont.variable} ${headingFont.variable}`}>
-      <body>{children}</body>
+      <PageAnimations>
+        <body>{children}</body>
+      </PageAnimations>
     </html>
   )
 }

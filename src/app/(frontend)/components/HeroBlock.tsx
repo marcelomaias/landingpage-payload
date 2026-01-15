@@ -3,23 +3,15 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaRegCheckCircle } from 'react-icons/fa'
-import { SplitTextAnim } from './gsap/SplitTextAnim'
-import { RevealAnim } from './gsap/RevealAnim'
 
 type HeroProps = Extract<Page['layout'][0], { blockType: 'hero' }>
 
 export default function HeroBlock({ block }: { block: HeroProps }) {
   return (
     <section className="heroSection">
-      <SplitTextAnim content={block.heading} stagger={0.05} duration={0.4}>
-        <RichText data={block.heading} />
-      </SplitTextAnim>
+      <RichText data={block.heading} />
 
-      {block.subheading && (
-        <RevealAnim content={block.subheading} direction="down" delay={1}>
-          <RichText data={block.subheading} />
-        </RevealAnim>
-      )}
+      {block.subheading && <RichText data={block.subheading} />}
       {typeof block?.image === 'object' && block?.image?.url && (
         <Image src={block?.image.url} alt={block?.image.alt} width={1280} height={400} priority />
       )}
