@@ -93,8 +93,12 @@ export interface Config {
     defaultIDType: string;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    header: Header;
+  };
+  globalsSelect: {
+    header: HeaderSelect<false> | HeaderSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -1037,6 +1041,54 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  logo?: (string | null) | Media;
+  headerLinksLeft?:
+    | {
+        title?: string | null;
+        path?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  headerLinksRight?:
+    | {
+        title?: string | null;
+        path?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  logo?: T;
+  headerLinksLeft?:
+    | T
+    | {
+        title?: T;
+        path?: T;
+        id?: T;
+      };
+  headerLinksRight?:
+    | T
+    | {
+        title?: T;
+        path?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

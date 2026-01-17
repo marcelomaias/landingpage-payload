@@ -97,7 +97,7 @@ export default function ContactBlock({ block }: { block: ContactProps }) {
   return (
     <>
       {typeof block?.form === 'object' && block?.form?.title === 'Contact' && (
-        <section className="contactSection">
+        <section id="contact" className="contactSection">
           {block.heading && <RichText data={block.heading} />}
           <form className="form" onSubmit={handleSubmit}>
             {block.form.fields?.map((field) => {

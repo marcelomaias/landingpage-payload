@@ -11,6 +11,7 @@ import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { Header } from './globals/Header/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -42,4 +43,6 @@ export default buildConfig({
       token: process.env.BLOB_READ_WRITE_TOKEN,
     }),
   ],
+
+  globals: [ Header]
 })

@@ -95,24 +95,85 @@ svg {
   vertical-align: middle;
 }
 
+.hideMobile {
+  @media (max-width: 600px) {
+    display: none !important;
+  }
+}
+.hideDesktop {
+  @media (min-width: 600px) {
+    display: none !important;
+  }
+}
+
+.headerSection {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  will-change: padding, background-color;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  .logo {
+    z-index: 100;
+  }
+}
+
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    opacity: 0.75;
+    width: auto;
+    height: 60px;
+  }
+}
+
+@media (min-width: 600px) {
+  .headerSection {
+    display: flex;
+    align-items: center;
+    will-change: height, background-color;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0);
+  }
+
+  .mainHeader {
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 .heroSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 100px 20px;
+  padding: 140px 20px 80px 20px;
 
-  @media (max-width: 1024px) {
-    padding: 80px 15px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 60px 10px;
-  }
-
-  @media (max-width: 400px) {
-    padding: 40px 5px;
+  @media (min-width: 768px) {
+    padding: 160px 20px 80px 20px;
   }
 
   h1 {
@@ -497,4 +558,119 @@ svg {
   p {
     margin: 0;
   }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(247, 152, 104, 0.98);
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  z-index: 99; /* Just below the header if header is z-100 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%); /* Initial state: Off-screen right */
+}
+
+.mobileLink {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 2rem;
+  opacity: 0; /* GSAP will animate this */
+}
+
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  z-index: 100;
+}
+.hamburger:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #000;
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: '';
+  display: block;
+}
+.hamburger-inner::before {
+  top: -10px;
+}
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/* ########################## Slider */
+.hamburger--slider .hamburger-inner {
+  top: 2px;
+}
+.hamburger--slider .hamburger-inner::before {
+  top: 10px;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+}
+.hamburger--slider .hamburger-inner::after {
+  top: 20px;
+}
+
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+.hamburger--slider.is-active .hamburger-inner::before {
+  transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+  opacity: 0;
+}
+.hamburger--slider.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(-90deg);
 }

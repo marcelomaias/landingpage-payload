@@ -4,8 +4,6 @@ import Image from 'next/image'
 type TopicsProps = Extract<Page['layout'][0], { blockType: 'topics' }>
 
 export default function TopicsBlock({ block }: { block: TopicsProps }) {
-  console.log('BLOCKS.TOPICS: ', block.topics)
-
   return (
     <section id="topics" className="topicsSection">
       {block.topics && block.topics.length > 0 && (

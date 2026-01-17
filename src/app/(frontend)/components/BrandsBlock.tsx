@@ -7,7 +7,7 @@ type BrandsProps = Extract<Page['layout'][0], { blockType: 'brands' }>
 
 export default function BrandsBlock({ block }: { block: BrandsProps }) {
   return (
-    <section className="brandsSection">
+    <section id="trust" className="brandsSection">
       {block.heading && <RichText data={block.heading} />}
       {block.brands && block.brands.length > 0 && (
         <div className="brandsGrid">

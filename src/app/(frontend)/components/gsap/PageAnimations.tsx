@@ -10,7 +10,7 @@ if (typeof window !== 'undefined') {
 
 export function PageAnimations({ children }: { children: React.ReactNode }) {
   useGSAP(() => {
-    //######################################### SPLIT TEXT
+    // SPLIT TEXT #########################################
     document.querySelectorAll('.heroSection h1').forEach((target) => {
       const el = target as HTMLElement
       if (el.dataset.split === 'true') return
@@ -40,7 +40,7 @@ export function PageAnimations({ children }: { children: React.ReactNode }) {
       })
     })
 
-    //######################################### REVEALS
+    // REVEALS #########################################
     type RevealDirection = 'up' | 'down' | 'left' | 'right'
 
     function reveal(
@@ -116,7 +116,7 @@ export function PageAnimations({ children }: { children: React.ReactNode }) {
       })
     })
 
-    //######################################### SPIN
+    // SPIN #########################################
     document.querySelectorAll('.topicItem').forEach((container) => {
       const items = container.querySelectorAll('img')
       if (!items.length) return
@@ -128,7 +128,7 @@ export function PageAnimations({ children }: { children: React.ReactNode }) {
 
       gsap.fromTo(
         items,
-        { rotate: -90 },
+        { rotate: -180 },
         {
           rotate: 0,
           stagger: 0.5,
